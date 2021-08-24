@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AppGestionInmuebles';
+
+  theme: string;
+  isNavOpen: boolean;
+
+  constructor() {
+    this.theme = 'defaultTheme'
+    this.isNavOpen = false
+  }
+
+  moveSideNav() {
+    this.isNavOpen = this.isNavOpen ? false : true
+  }
+
+  changeTheme() {
+    this.theme = this.theme === 'defaultTheme' ? 'darkTheme' : 'defaultTheme'
+  }
 }
