@@ -1,5 +1,23 @@
-<header></header>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<footer></footer>
+<div class="app darkTheme">
+  <header></header>
+  <main>
+    <mat-sidenav-container [hasBackdrop]="false">
+      <mat-sidenav opened="true" mode="push" [fixedInViewport]="true" fixedTopGap="60">
+        <mat-list>
+          <mat-list-item routerLink="/dashboard">
+            <mat-icon matListIcon>dashboard</mat-icon>
+            <h3 matLine> Dashboard </h3>
+          </mat-list-item>
+          <mat-list-item routerLink="/owners">
+            <mat-icon matListIcon>person</mat-icon>
+            <h3 matLine> Propietarios </h3>
+          </mat-list-item>
+        </mat-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+  <footer></footer>
+</div>

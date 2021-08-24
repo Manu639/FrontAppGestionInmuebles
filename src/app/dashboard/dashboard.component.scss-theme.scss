@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+@mixin dashboard-component-theme($theme) {
+  
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+
+  .lightTheme{
+      background-color: $primary;
+  }
+
+  .darkTheme{
+      background-color: $accent;
+  }
+}

@@ -5,16 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OwnersListComponent } from './owners-list/owners-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from './material-components/material-components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    OwnersListComponent
+    OwnersListComponent,
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
