@@ -5,15 +5,41 @@
 @import './app/themes/default_theme.scss';
 @import './app/themes/dark_theme.scss';
 
+
+
+
+
+
+
+
+
+//import the custom component theme files
+
+
+
+//includ them in general mixin
+@mixin custom-components-theme($theme) {}
+
+
 .defaultTheme {
   @include angular-material-theme($light-theme);
+  @include custom-components-theme($light-theme);
 }
 
 .darkTheme {
   @include angular-material-theme($dark-theme);
+  @include custom-components-theme($dark-theme);
 }
+
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
