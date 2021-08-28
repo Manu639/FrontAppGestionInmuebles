@@ -11,7 +11,7 @@ export class AppComponent {
   isNavOpen: boolean;
 
   constructor() {
-    this.theme = 'defaultTheme'
+    this.theme = 'darkTheme'
     this.isNavOpen = false
   }
 
