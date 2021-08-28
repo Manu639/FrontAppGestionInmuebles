@@ -1,37 +1,39 @@
-<div class="mat-app-background" [ngClass]="theme">
-  <header>
-    <mat-toolbar role="heading">
-      <button mat-icon-button (click)="moveSideNav()">
-        <mat-icon color="primary">widgets</mat-icon>
-      </button>
-      <button mat-icon-button (click)="changeTheme()">
-        <mat-icon color="primary">{{theme === 'darkTheme' ? 'dark_mode':'light_mode'}}</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-    </mat-toolbar>
-  </header>
-  <main>
+<div [ngClass]="theme">
+  <div class="mat-app-background">
+    <header>
+      <mat-toolbar role="heading">
+        <button mat-icon-button (click)="moveSideNav()">
+          <mat-icon color="primary">widgets</mat-icon>
+        </button>
+        <button mat-icon-button (click)="changeTheme()">
+          <mat-icon color="primary">{{theme === 'darkTheme' ? 'dark_mode':'light_mode'}}</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
+    </header>
+    <main>
 
-    <mat-sidenav-container>
-      <mat-sidenav class="p-2" [opened]="isNavOpen" mode="push" [fixedInViewport]="true" fixedTopGap="64">
-        <mat-nav-list>
-          <a mat-list-item routerLink="/dashboard" (click)="moveSideNav()">
-            <mat-icon color="primary" matListIcon>dashboard</mat-icon>
-            <h3 matLine> Dashboard </h3>
-          </a>
-          <a mat-list-item routerLink="/owners" (click)="moveSideNav()">
-            <mat-icon color="primary" matListIcon>person</mat-icon>
-            <h3 matLine> Propietarios </h3>
-          </a>
-        </mat-nav-list>
-      </mat-sidenav>
+      <mat-sidenav-container>
+        <mat-sidenav class="p-2" [opened]="isNavOpen" mode="push" [fixedInViewport]="true" fixedTopGap="64">
+          <mat-nav-list>
+            <a mat-list-item routerLink="/dashboard" (click)="moveSideNav()">
+              <mat-icon color="primary" matListIcon>dashboard</mat-icon>
+              <h3 matLine> Dashboard </h3>
+            </a>
+            <a mat-list-item routerLink="/owners" (click)="moveSideNav()">
+              <mat-icon color="primary" matListIcon>person</mat-icon>
+              <h3 matLine> Propietarios </h3>
+            </a>
+          </mat-nav-list>
+        </mat-sidenav>
 
 
-      <mat-sidenav-content>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </main>
-  <footer></footer>
+        <mat-sidenav-content>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </main>
+    <footer></footer>
+  </div>
 </div>
