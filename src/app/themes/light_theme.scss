@@ -1,6 +1,6 @@
-$accent: (Main:#4db6ac,
-  Light:#82e9de,
-  Dark: #00867d,
+$accent: (Main:#64b5f6,
+  Light:#9be7ff,
+  Dark: #2286c3,
   contrast: (Main: #f5f5f5,
     Light: #000,
     Dark: #fff));
@@ -12,11 +12,10 @@ $warn: (Main:#ef5350,
     Light: #000,
     Dark: #fff));
 
-$theme-primary: mat-palette($mat-teal, 300);
+
+$theme-primary: mat-palette($mat-teal, 300, 700, 900);
 $theme-accent: mat-palette($accent, Main, Light, Dark);
 $theme-warn: mat-palette($warn, Main, Light, Dark);
-
 // create theme (use mat-dark-theme for themes with dark backgrounds)
-$dark-theme: mat-dark-theme($theme-primary,
-  $theme-accent,
-  $theme-warn)
+$light-theme: mat-light-theme($theme-primary,
+  $theme-accent, $theme-warn)

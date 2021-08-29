@@ -3,10 +3,10 @@
     <header>
       <mat-toolbar role="heading">
         <button mat-icon-button (click)="moveSideNav()">
-          <mat-icon color="primary">widgets</mat-icon>
+          <mat-icon color="accent">widgets</mat-icon>
         </button>
         <button mat-icon-button (click)="changeTheme()">
-          <mat-icon color="primary">{{theme === 'darkTheme' ? 'dark_mode':'light_mode'}}</mat-icon>
+          <mat-icon color="accent">{{theme === 'darkTheme' ? 'dark_mode':'light_mode'}}</mat-icon>
         </button>
         <span>My App</span>
         <span class="example-spacer"></span>
@@ -18,11 +18,11 @@
         <mat-sidenav class="p-2" [opened]="isNavOpen" mode="push" [fixedInViewport]="true" fixedTopGap="64">
           <mat-nav-list>
             <a mat-list-item routerLink="/dashboard" (click)="moveSideNav()">
-              <mat-icon color="primary" matListIcon>dashboard</mat-icon>
+              <mat-icon color="accent" matListIcon>dashboard</mat-icon>
               <h3 matLine> Dashboard </h3>
             </a>
             <a mat-list-item routerLink="/owners" (click)="moveSideNav()">
-              <mat-icon color="primary" matListIcon>person</mat-icon>
+              <mat-icon color="accent" matListIcon>person</mat-icon>
               <h3 matLine> Propietarios </h3>
             </a>
           </mat-nav-list>

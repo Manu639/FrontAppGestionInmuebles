@@ -1,3 +1,11 @@
+.lightTheme mat-toolbar {
+  box-shadow: 0px 1px 7px 1px grey;
+}
+
+.darkTheme mat-toolbar {
+  box-shadow: 0px 1px 7px 1px black;
+}
+
 mat-list-item {
   cursor: pointer;
 }

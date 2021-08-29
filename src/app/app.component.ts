@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  section: string
   theme: string;
   isNavOpen: boolean;
 
   constructor() {
+    this.section = ''
     this.theme = 'darkTheme'
     this.isNavOpen = false
   }
@@ -20,6 +21,6 @@ export class AppComponent {
   }
 
   changeTheme() {
-    this.theme = this.theme === 'defaultTheme' ? 'darkTheme' : 'defaultTheme'
+    this.theme = this.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
   }
 }

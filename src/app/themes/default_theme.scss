@@ -1,9 +1,0 @@
-$theme-primary: mat-palette($mat-teal, 300, 700, 900);
-$theme-accent: mat-palette($mat-blue, A200);
-
-// create theme (use mat-dark-theme for themes with dark backgrounds)
-$light-theme: mat-light-theme(
-    $theme-primary,
-    $theme-accent
-    )
-
