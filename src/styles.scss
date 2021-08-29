@@ -26,9 +26,6 @@
 
 /* You can add global styles to this file, and also import other style files */
 
-::-webkit-scrollbar {
-  display: none;
-}
 
 @-moz-document url-prefix() {
 
@@ -36,6 +33,10 @@
   body {
     scrollbar-width: none;
   }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 html,

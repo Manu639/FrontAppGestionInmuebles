@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 const material = [
   MatSidenavModule,
@@ -15,7 +16,8 @@ const material = [
   MatToolbarModule,
   MatButtonModule,
   MatCardModule,
-  MatTableModule]
+  MatTableModule,
+  MatSortModule,]
 
 @NgModule({
   imports: [

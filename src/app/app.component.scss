@@ -6,6 +6,10 @@
   box-shadow: 0px 1px 7px 1px black;
 }
 
+mat-sidenav-content {
+  height: 100vh;
+}
+
 mat-list-item {
   cursor: pointer;
 }
