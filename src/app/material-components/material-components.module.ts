@@ -8,6 +8,10 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 const material = [
   MatSidenavModule,
@@ -17,13 +21,19 @@ const material = [
   MatButtonModule,
   MatCardModule,
   MatTableModule,
-  MatSortModule,]
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule]
 
 @NgModule({
   imports: [
     CommonModule,
     ...material],
 
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline', floatLabel: 'always' } }
+  ],
   exports: [
     ...material
   ]

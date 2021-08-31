@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PropertiesListComponent } from './properties-list/properties-list.component';
 import { MaterialModule } from './material-components/material-components.module';
 import { HttpClientModule } from '@angular/common/http';
+import { OwnerFileComponent } from './owner-file/owner-file.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     OwnersListComponent,
     PropertiesListComponent,
+    OwnerFileComponent,
   ],
 
   imports: [
@@ -24,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
