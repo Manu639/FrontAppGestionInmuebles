@@ -1,35 +1,49 @@
 <div class="d-flex justify-content-center">
     <div class="content">
 
-        <h3 class="h2 pt-4">Nombre del propietario</h3>
+        <h3 class="h2 pt-4 text-center">Nombre del propietario</h3>
         <div class="cards pt-3">
-            <mat-card class="row">
-
-                <mat-form-field class="col-4">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="¿Cómo se llama?">
-                </mat-form-field>
-                <mat-form-field class="col-4">
-                    <mat-label>Apellidos</mat-label>
-                    <input matInput placeholder="Indicanos sus apellidos">
-                </mat-form-field>
-                <mat-form-field class="col-4">
-                    <mat-label>DNI / NIF / CIF</mat-label>
-                    <input matInput placeholder="Ahora la identificación...">
-                </mat-form-field>
-                <mat-form-field class="col-4">
-                    <mat-label>Fecha de nacimiento</mat-label>
-                    <input matInput placeholder="¿Cuándo es su cumpleaños?">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Género</mat-label>
-                    <mat-select panelClass="text-white bg-dark">
-                        <mat-option value="masc">Hombre</mat-option>
-                        <mat-option value="fem">Mujer</mat-option>
-                        <mat-option value="other">Otro</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </mat-card>
+            <mat-tab-group dynamicHeight mat-align-tabs="center">
+                <mat-tab label="Datos Personales">
+                    <div class="example-small-box mat-elevation-z4">
+                        <mat-card class="row">
+                            <h3>Datos Personales</h3>
+                            <mat-form-field class="col-4" disabled appearance="fill">
+                                <mat-label>Nombre</mat-label>
+                                <input disabled matInput value="Manuel" placeholder="¿Cómo se llama?">
+                            </mat-form-field>
+                            <mat-form-field class="col-4">
+                                <mat-label>Apellidos</mat-label>
+                                <input matInput placeholder="Indicanos sus apellidos">
+                            </mat-form-field>
+                            <mat-form-field class="col-4">
+                                <mat-label>DNI / NIF / CIF</mat-label>
+                                <input matInput placeholder="Ahora la identificación...">
+                            </mat-form-field>
+                            <mat-form-field class="col-4">
+                                <mat-label>Fecha de nacimiento</mat-label>
+                                <input matInput [matDatepicker]="picker" placeholder="Elije una fecha">
+                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Género</mat-label>
+                                <mat-select>
+                                    <mat-option value="masc">Hombre</mat-option>
+                                    <mat-option value="fem">Mujer</mat-option>
+                                    <mat-option value="other">Otro</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-card>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Datos de Contacto">
+                </mat-tab>
+                <mat-tab label="Datos Bancarios">
+                </mat-tab>
+            </mat-tab-group>
         </div>
     </div>
 </div>

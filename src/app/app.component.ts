@@ -1,3 +1,4 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,10 +11,16 @@ export class AppComponent {
   theme: string;
   isNavOpen: boolean;
 
-  constructor() {
+  constructor(
+    private overlayContainer: OverlayContainer
+  ) {
     this.section = ''
     this.theme = 'darkTheme'
     this.isNavOpen = false
+  }
+
+  ngAfterViewInit() {
+    this.overlayContainer.getContainerElement().classList.add(this.theme)
   }
 
   moveSideNav() {
@@ -22,5 +29,13 @@ export class AppComponent {
 
   changeTheme() {
     this.theme = this.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
+    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+    const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('Theme'));
+    if (themeClassesToRemove.length) {
+      overlayContainerClasses.remove(...themeClassesToRemove);
+    }
+    overlayContainerClasses.add(this.theme);
+
+
   }
 }
