@@ -15,7 +15,11 @@ export class OwnersService {
   }
 
   getAll(): Promise<Owner[]> {
-    console.log(this.baseUrl)
     return this.http.get<Owner[]>(this.baseUrl).toPromise()
   }
+
+  getById(id: string): Promise<Owner> {
+    return this.http.get<Owner>(`${this.baseUrl}/${id}`).toPromise()
+  }
 }
+

@@ -11,7 +11,6 @@ import { MaterialModule } from './material-components/material-components.module
 import { HttpClientModule } from '@angular/common/http';
 import { OwnerFileComponent } from './owner-file/owner-file.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [

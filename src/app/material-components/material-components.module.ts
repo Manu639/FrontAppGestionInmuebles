@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const material = [
   MatSidenavModule,
@@ -30,7 +31,8 @@ const material = [
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatTabsModule]
+  MatTabsModule,
+  MatGridListModule]
 
 @NgModule({
   imports: [
@@ -38,7 +40,7 @@ const material = [
     ...material],
 
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill', floatLabel: 'always' } }
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }
   ],
   exports: [
     ...material

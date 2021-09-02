@@ -3,6 +3,9 @@ export interface Owner {
     lastName: string,
     phone: string,
     email: string,
-    identificationNumbre: string,
-    address: string
+    identificationNumber: string,
+    personalAddress: string,
+    invoiceAddress: string,
+    iban: string,
+    birthDate: Date
 }
