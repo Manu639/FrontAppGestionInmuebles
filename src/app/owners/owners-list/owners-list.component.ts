@@ -1,6 +1,6 @@
-import { OwnersService } from './../owners.service';
+import { OwnersService } from '../owners.service';
 import { Component } from '@angular/core';
-import { Owner } from '../dashboard/interfaces/owner.interface';
+import { Owner } from '../../interfaces/owner.interface';
 
 @Component({
   selector: 'app-owners-list',

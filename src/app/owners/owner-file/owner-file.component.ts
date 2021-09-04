@@ -1,8 +1,8 @@
-import { OwnersService } from './../owners.service';
+import { OwnersService } from '../owners.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Owner } from '../dashboard/interfaces/owner.interface';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Owner } from '../../interfaces/owner.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-owner-file',

@@ -1,6 +1,6 @@
 <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
     <div class="d-flex align-items-center mb-3">
-        <h1 class="me-3">{{owner.name + "" + owner.lastName}}</h1>
+        <h1 class="me-3">{{owner.name + " " + owner.lastName}}</h1>
         <div *ngIf="isReadonly">
             <button class="mat-elevation-z0" mat-mini-fab color="accent" (click)="initEditMode()">
                 <mat-icon>edit</mat-icon>
@@ -14,7 +14,7 @@
     </div>
     <div class="row g-4">
         <div class="col-12">
-            <mat-card class="w-100 mat-elevation-z3">
+            <mat-card class="w-100">
                 <mat-card-header>
                     <mat-card-title>Información Personal</mat-card-title>
                 </mat-card-header>
@@ -45,7 +45,7 @@
             </mat-card>
         </div>
         <div class="col-6">
-            <mat-card class="w-100 mat-elevation-z3">
+            <mat-card class="w-100">
                 <mat-card-header>
                     <mat-card-title>Datos Bancarios</mat-card-title>
                 </mat-card-header>
@@ -62,7 +62,7 @@
             </mat-card>
         </div>
         <div class="col-6">
-            <mat-card class="w-100 mat-elevation-z3">
+            <mat-card class="w-100">
                 <mat-card-header>
                     <mat-card-title>Contacto</mat-card-title>
                 </mat-card-header>
