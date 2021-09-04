@@ -40,7 +40,7 @@ const material = [
     ...material],
 
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } },
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   exports: [

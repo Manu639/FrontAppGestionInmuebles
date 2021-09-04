@@ -1,0 +1,14 @@
+POST http://127.0.0.1:3000/api/owners/update
+Content-Type: application/json
+
+{
+    "id" : 58,
+    "name": "Funciona",
+    "lastName": "Bien",
+    "email": "sit.amet@Proinsedturpis.ca",
+    "identificationNumber": "1683031905199",
+    "phone": "478172838",
+    "personalAddress": "Ap #229-9329 Semper Street",
+    "iban": null
+}
+###

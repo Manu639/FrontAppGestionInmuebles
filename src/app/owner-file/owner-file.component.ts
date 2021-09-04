@@ -13,14 +13,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class OwnerFileComponent implements OnInit {
 
   owner: Owner
-
   ownerForm: FormGroup
+  isReadonly: boolean
 
   constructor(
-    private _ownersService: OwnersService,
-    private _activatedRoute: ActivatedRoute
+    private ownersService: OwnersService,
+    private activatedRoute: ActivatedRoute
   ) {
 
+    this.isReadonly = true
     this.owner = {
       name: '',
       lastName: '',
@@ -47,8 +48,8 @@ export class OwnerFileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._activatedRoute.params.subscribe(async params => {
-      this.owner = await this._ownersService.getById(params.id)
+    this.activatedRoute.params.subscribe(async params => {
+      this.owner = await this.ownersService.getById(params.id)
 
       this.ownerForm.get('name')?.setValue(this.owner.name);
       this.ownerForm.get('lastName')?.setValue(this.owner.lastName);
@@ -59,12 +60,20 @@ export class OwnerFileComponent implements OnInit {
       this.ownerForm.get('invoiceAddress')?.setValue(this.owner.invoiceAddress);
       this.ownerForm.get('iban')?.setValue(this.owner.iban);
       this.ownerForm.get('birthDate')?.setValue(this.owner.birthDate);
-
     })
   }
 
 
-  ngSubmit() {
+  onSubmit() {
+    console.log(this.ownerForm.value)
+    let ownerId = this.activatedRoute.snapshot.params.id
+    this.ownersService.update(this.ownerForm.value, ownerId)
+    this.isReadonly = true
+  }
+
+  initEditMode() {
+
+    this.isReadonly = this.isReadonly ? false : true
 
   }
 }
