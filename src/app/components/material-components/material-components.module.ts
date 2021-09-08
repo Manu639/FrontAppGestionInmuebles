@@ -16,6 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
 
 const material = [
   MatSidenavModule,
@@ -32,7 +33,8 @@ const material = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatTabsModule,
-  MatGridListModule]
+  MatGridListModule,
+  MatDividerModule]
 
 @NgModule({
   imports: [

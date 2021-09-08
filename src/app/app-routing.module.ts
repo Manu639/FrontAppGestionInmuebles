@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
   {
-    path: 'app', component: SideMenuComponent, children: [
+    path: 'app', component: AppContentComponent, children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'owners', component: OwnersListComponent },

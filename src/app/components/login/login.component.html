@@ -1,0 +1,35 @@
+<header>
+    <mat-toolbar class="justify-content-center" color="primary" role="heading">
+        <span class="h2">My App</span>
+    </mat-toolbar>
+</header>
+<main>
+    <mat-card>
+        <div class="row">
+            <div class="col-6 text-center">
+                <mat-card-actions>
+                    <h4>¡Bienvenido!</h4>
+                    <mat-card-subtitle>Inicia sesión para continuar</mat-card-subtitle>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                    </form>
+                    <button class="w-50" mat-raised-button color="accent">Iniciar Sesión</button>
+                </mat-card-actions>
+            </div>
+            <div class="col-6 text-center">
+                <mat-card-actions>
+                    Hola
+                </mat-card-actions>
+            </div>
+        </div>
+    </mat-card>
+</main>
+<footer>
+</footer>
