@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" role="heading">
+    <button mat-icon-button (click)="moveSideNav()">
+        <mat-icon color="accent">widgets</mat-icon>
+    </button>
+    <button mat-icon-button (click)="changeTheme()">
+        <mat-icon color="accent">{{theme === 'darkTheme' ? 'dark_mode':'light_mode'}}</mat-icon>
+    </button>
+    <span>My App</span>
+</mat-toolbar>

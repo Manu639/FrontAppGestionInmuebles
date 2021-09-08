@@ -1,6 +1,6 @@
-import { OwnersService } from '../owners.service';
 import { Component } from '@angular/core';
-import { Owner } from '../../interfaces/owner.interface';
+import { OwnersService } from 'src/app/services/owners.service';
+import { Owner } from '../../../interfaces/owner.interface'
 
 @Component({
   selector: 'app-owners-list',
@@ -24,9 +24,9 @@ export class OwnersListComponent {
         cell: (property: any) => `${property.name}`
       },
       {
-        columnDef: 'lastName',
+        columnDef: 'last_name',
         header: 'Apellidos',
-        cell: (property: any) => `${property.lastName}`
+        cell: (property: any) => `${property.last_name}`
       },
       {
         columnDef: 'phone',

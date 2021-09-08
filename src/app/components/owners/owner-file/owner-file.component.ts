@@ -1,7 +1,7 @@
-import { OwnersService } from '../owners.service';
+import { OwnersService } from '../../../services/owners.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Owner } from '../../interfaces/owner.interface';
+import { Owner } from '../../../interfaces/owner.interface';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -24,26 +24,26 @@ export class OwnerFileComponent implements OnInit {
     this.isReadonly = true
     this.owner = {
       name: '',
-      lastName: '',
+      last_name: '',
       phone: '',
       email: '',
-      identificationNumber: '',
-      personalAddress: '',
-      invoiceAddress: '',
+      identification_number: '',
+      personal_address: '',
+      tax_address: '',
       iban: '',
-      birthDate: new Date()
+      birth_date: new Date()
     }
 
     this.ownerForm = new FormGroup({
       name: new FormControl(''),
-      lastName: new FormControl(''),
+      last_name: new FormControl(''),
       phone: new FormControl(''),
       email: new FormControl(''),
-      identificationNumber: new FormControl(''),
-      personalAddress: new FormControl(''),
-      invoiceAddress: new FormControl(''),
+      identification_number: new FormControl(''),
+      personal_address: new FormControl(''),
+      tax_address: new FormControl(''),
       iban: new FormControl(''),
-      birthDate: new FormControl(''),
+      birth_date: new FormControl(''),
     })
   }
 
@@ -52,14 +52,14 @@ export class OwnerFileComponent implements OnInit {
       this.owner = await this.ownersService.getById(params.id)
 
       this.ownerForm.get('name')?.setValue(this.owner.name);
-      this.ownerForm.get('lastName')?.setValue(this.owner.lastName);
+      this.ownerForm.get('last_name')?.setValue(this.owner.last_name);
       this.ownerForm.get('phone')?.setValue(this.owner.phone);
       this.ownerForm.get('email')?.setValue(this.owner.email);
-      this.ownerForm.get('identificationNumber')?.setValue(this.owner.identificationNumber);
-      this.ownerForm.get('personalAddress')?.setValue(this.owner.personalAddress);
-      this.ownerForm.get('invoiceAddress')?.setValue(this.owner.invoiceAddress);
+      this.ownerForm.get('identification_number')?.setValue(this.owner.identification_number);
+      this.ownerForm.get('personal_address')?.setValue(this.owner.personal_address);
+      this.ownerForm.get('invoice_address')?.setValue(this.owner.tax_address);
       this.ownerForm.get('iban')?.setValue(this.owner.iban);
-      this.ownerForm.get('birthDate')?.setValue(this.owner.birthDate);
+      this.ownerForm.get('birth_date')?.setValue(this.owner.birth_date);
     })
   }
 

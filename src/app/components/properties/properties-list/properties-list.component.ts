@@ -1,6 +1,6 @@
-import { PropertiesService } from '../properties.service';
+import { PropertiesService } from '../../../services/properties.service';
 import { Component } from '@angular/core';
-import { Property } from '../../interfaces/property.interface';
+import { Property } from '../../../interfaces/property.interface';
 
 
 @Component({

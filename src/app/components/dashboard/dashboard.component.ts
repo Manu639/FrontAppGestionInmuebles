@@ -1,8 +1,8 @@
-import { Owner } from './../interfaces/owner.interface';
+import { Owner } from '../../interfaces/owner.interface';
 import { Component, OnInit } from '@angular/core';
-import { Property } from '../interfaces/property.interface';
-import { OwnersService } from '../owners/owners.service';
-import { PropertiesService } from '../properties/properties.service';
+import { Property } from '../../interfaces/property.interface';
+import { OwnersService } from '../../services/owners.service';
+import { PropertiesService } from '../../services/properties.service';
 
 @Component({
   selector: 'dashboard',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Property } from '../../interfaces/property.interface';
+import { Property } from '../../../interfaces/property.interface';
 import { ActivatedRoute } from '@angular/router';
-import { PropertiesService } from '../properties.service';
+import { PropertiesService } from '../../../services/properties.service';
 
 @Component({
   selector: 'app-property-file',
@@ -45,10 +45,11 @@ export class propertyFileComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  async onSubmit() {
     console.log(this.propertyForm.value)
     let propertyId = this.activatedRoute.snapshot.params.id
     this.propertiesService.update(this.propertyForm.value, propertyId)
+    this.property = await this.propertiesService.getById(propertyId)
     this.isReadonly = true
   }
 

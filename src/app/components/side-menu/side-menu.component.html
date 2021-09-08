@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+    <mat-sidenav class="p-2" [opened]="isNavOpen" [fixedInViewport]="true" fixedTopGap="64">
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/app', 'dashboard']" (click)="moveSideNav()">
+                <mat-icon color="accent" matListIcon>dashboard</mat-icon>
+                <h3 matLine> Dashboard </h3>
+            </a>
+            <a mat-list-item [routerLink]="['/app', 'owners']" (click)="moveSideNav()">
+                <mat-icon color="accent" matListIcon>person</mat-icon>
+                <h3 matLine> Propietarios </h3>
+            </a>
+            <a mat-list-item [routerLink]="['/app', 'properties']" (click)="moveSideNav()">
+                <mat-icon color="accent" matListIcon>house</mat-icon>
+                <h3 matLine> Inmuebles </h3>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="wrapper">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,12 +1,12 @@
 export interface Owner {
     id?: string
     name: string,
-    lastName: string,
+    last_name: string,
     phone: string,
     email: string,
-    identificationNumber: string,
-    personalAddress: string,
-    invoiceAddress: string,
+    identification_number: string,
+    personal_address: string,
+    tax_address: string,
     iban: string,
-    birthDate: Date
+    birth_date: Date
 }

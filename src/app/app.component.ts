@@ -1,4 +1,5 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
+import { IAppState } from './redux/store';
+import { NgRedux } from '@angular-redux/store';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,35 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  section: string
-  theme: string;
-  isNavOpen: boolean;
+
+  theme: string
 
   constructor(
-    private overlayContainer: OverlayContainer
+    private ngRedux: NgRedux<IAppState>
   ) {
-    this.section = ''
-    this.theme = 'darkTheme'
-    this.isNavOpen = false
+    this.theme = ""
   }
 
-  ngAfterViewInit() {
-    this.overlayContainer.getContainerElement().classList.add(this.theme)
+  ngOnInit(): void {
+    this.theme = this.ngRedux.getState().theme;
+
+    this.ngRedux.subscribe(() => {
+      this.theme = this.ngRedux.getState().theme;
+    })
   }
 
-  moveSideNav() {
-    this.isNavOpen = this.isNavOpen ? false : true
-  }
-
-  changeTheme() {
-    this.theme = this.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
-    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
-    const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('Theme'));
-    if (themeClassesToRemove.length) {
-      overlayContainerClasses.remove(...themeClassesToRemove);
-    }
-    overlayContainerClasses.add(this.theme);
-
-
-  }
 }
