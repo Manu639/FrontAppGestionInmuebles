@@ -7,25 +7,32 @@
     <mat-card>
         <div class="row">
             <div class="col-6 text-center">
-                <mat-card-actions>
+                <mat-card-actions class="loginForm">
                     <h4>¡Bienvenido!</h4>
                     <mat-card-subtitle>Inicia sesión para continuar</mat-card-subtitle>
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
-                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                            <input matInput>
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
-                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                            <input matInput>
                         </mat-form-field>
                     </form>
                     <button class="w-50" mat-raised-button color="accent">Iniciar Sesión</button>
                 </mat-card-actions>
             </div>
-            <div class="col-6 text-center">
-                <mat-card-actions>
-                    Hola
+            <div class="col-6 d-flex justify-content-center">
+                <mat-card-actions class="">
+                    <div id="g_id_onload"
+                        data-client_id="165326546525-tcr0qd5vbnjlq3d593u0kctel6a8kf69.apps.googleusercontent.com"
+                        data-context="use" data-ux_mode="redirect"
+                        data-login_uri="http://localhost:3000/api/users/googleaccount" data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+                        data-text="signin_with" data-size="large" data-logo_alignment="center" data-width="250">
+                    </div>
                 </mat-card-actions>
             </div>
         </div>
