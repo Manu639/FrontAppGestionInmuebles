@@ -10,7 +10,9 @@ export class OwnersService {
 
   baseUrl: string
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient
+  ) {
     this.baseUrl = `${environment.backendAppUrl}owners`
   }
 
