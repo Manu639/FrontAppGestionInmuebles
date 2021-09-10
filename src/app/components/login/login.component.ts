@@ -9,12 +9,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
+  hide: boolean;
 
   constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl('')
     })
+    this.hide = true
   }
 
   ngOnInit(): void {

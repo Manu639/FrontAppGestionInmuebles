@@ -1,10 +1,28 @@
-mat-card {
-  padding: 3em 0em;
+mat-card.login {
   width: 800px;
-  height: 400px;
-  margin: 8em auto;
+  margin: 4em auto 1em auto;
+}
+
+mat-card.register {
+  width: 700px;
+  margin: 2em auto 1em auto;
+}
+
+.input-login-width {
+  width: 75%;
+}
+
+.input-register-width {
+  width: 100%;
 }
 
 .loginForm {
   border-right: 1px solid lightgrey;
+}
+
+
+.mat-card-actions .mat-button,
+.mat-card-actions .mat-raised-button,
+.mat-card-actions .mat-stroked-button {
+  margin: 0px;
 }
