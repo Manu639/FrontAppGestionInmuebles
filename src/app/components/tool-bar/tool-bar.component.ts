@@ -1,6 +1,7 @@
 import { NgRedux } from '@angular-redux/store';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CHANGE_THEME, NAV_STATE } from 'src/app/redux/actions';
 import { IAppState } from 'src/app/redux/store';
 
@@ -15,6 +16,7 @@ export class ToolBarComponent implements OnInit {
   theme: string
 
   constructor(
+    private router: Router,
     private overlayContainer: OverlayContainer,
     private ngRedux: NgRedux<IAppState>
   ) {
@@ -46,6 +48,11 @@ export class ToolBarComponent implements OnInit {
 
   moveSideNav() {
     this.ngRedux.dispatch({ type: NAV_STATE })
+  }
+
+  onLogout() {
+    localStorage.removeItem('authorization');
+    window.location.href = 'http://127.0.0.1:4200/login';
   }
 
 }

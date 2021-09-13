@@ -13,19 +13,18 @@ export class OwnersService {
   constructor(
     private http: HttpClient
   ) {
-    this.baseUrl = `${environment.backendAppUrl}owners`
+    this.baseUrl = `${environment.ApiUrl}owners`
   }
 
-  getAll(): Promise<Owner[]> {
-    return this.http.get<Owner[]>(this.baseUrl).toPromise()
+  getByUser(): Promise<any> {
+    return this.http.get<any>(this.baseUrl).toPromise()
   }
 
-  getById(id: string): Promise<Owner> {
-    return this.http.get<Owner>(`${this.baseUrl}/${id}`).toPromise()
+  getById(id: string): Promise<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`).toPromise()
   }
 
   update(owner: Owner, ownerId: string): Promise<any> {
-    console.log(owner)
     owner.id = ownerId
     return this.http.post<any>(`${this.baseUrl}/update`, owner).toPromise()
   }

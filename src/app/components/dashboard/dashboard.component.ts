@@ -24,8 +24,15 @@ export class DashboardComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.owners = await this.ownerService.getAll()
-    this.properties = await this.propertiesService.getAll()
+
+
+    let response;
+
+    response = await this.ownerService.getByUser()
+    this.owners = response.data.response
+
+    response = await this.propertiesService.getByUser()
+    this.properties = response.data.response
   }
 
 }

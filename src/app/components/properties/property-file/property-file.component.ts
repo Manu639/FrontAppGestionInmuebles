@@ -46,7 +46,6 @@ export class propertyFileComponent implements OnInit {
 
 
   async onSubmit() {
-    console.log(this.propertyForm.value)
     let propertyId = this.activatedRoute.snapshot.params.id
     this.propertiesService.update(this.propertyForm.value, propertyId)
     this.property = await this.propertiesService.getById(propertyId)

@@ -16,7 +16,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const material = [
   MatSidenavModule,
@@ -34,7 +35,8 @@ const material = [
   MatNativeDateModule,
   MatTabsModule,
   MatGridListModule,
-  MatDividerModule]
+  MatSnackBarModule,
+  MatDialogModule]
 
 @NgModule({
   imports: [

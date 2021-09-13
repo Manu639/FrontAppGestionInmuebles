@@ -12,15 +12,15 @@ export class PropertiesService {
   constructor(
     private http: HttpClient
   ) {
-    this.baseUrl = `${environment.backendAppUrl}properties`
+    this.baseUrl = `${environment.ApiUrl}properties`
   };
 
-  getAll(): Promise<Property[]> {
-    return this.http.get<Property[]>(this.baseUrl).toPromise()
+  getByUser(): Promise<any> {
+    return this.http.get<any>(this.baseUrl).toPromise()
   }
 
-  getById(id: string): Promise<Property> {
-    return this.http.get<Property>(`${this.baseUrl}/${id}`).toPromise()
+  getById(id: string): Promise<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`).toPromise()
   }
 
   update(property: Property, propertyId: string): Promise<any> {

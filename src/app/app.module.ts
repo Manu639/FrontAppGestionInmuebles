@@ -1,3 +1,4 @@
+import { HeadersInterceptorService } from './interceptors/headers-interceptor.service';
 import { IAppState, INITIAL_STATE, rootReducer } from './redux/store';
 import { isDevMode, NgModule } from '@angular/core';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
@@ -10,7 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PropertiesListComponent } from './components/properties/properties-list/properties-list.component';
 import { MaterialModule } from './components/material-components/material-components.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OwnerFileComponent } from './components/owners/owner-file/owner-file.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { propertyFileComponent } from './components/properties/property-file/property-file.component';
@@ -19,6 +20,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AppContentComponent } from './components/app-content/app-content.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { RouterModule } from '@angular/router';
+import { OwnerRegisterFormComponent } from './components/owners/owner-register-form/owner-register-form.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,11 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     SideMenuComponent,
     AppContentComponent,
-    ToolBarComponent
+    ToolBarComponent,
+    OwnerRegisterFormComponent
   ],
+
+  entryComponents: [OwnerRegisterFormComponent],
 
   imports: [
     BrowserModule,
@@ -44,7 +49,9 @@ import { RouterModule } from '@angular/router';
     NgReduxModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

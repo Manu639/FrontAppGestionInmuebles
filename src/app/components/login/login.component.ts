@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -14,7 +15,9 @@ export class LoginComponent implements OnInit {
   hide: boolean;
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.hide = true
 
@@ -35,16 +38,21 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if (this.activatedRoute.snapshot.params.token) {
+      localStorage.setItem('authorization', this.activatedRoute.snapshot.params.token)
+      this.router.navigate(['/app', 'dashboard'])
+    }
+
   }
 
   async onLoginSubmit() {
     try {
       const { email, password } = this.loginForm.value
       let response = await this.usersService.logIn(email, password)
-      console.log(response)
-
+      localStorage.setItem('authorization', response.data.token)
+      this.router.navigate(['/app', 'dashboard'])
     } catch (err) {
-      console.log(err)
     }
   }
 
@@ -52,9 +60,10 @@ export class LoginComponent implements OnInit {
     try {
       this.registerForm.value.role_id = 25
       let response = await this.usersService.register(this.registerForm.value);
-      console.log(response)
+      localStorage.setItem('authorization', response.data.token)
+      this.router.navigate(['/app', 'dashboard'])
+
     } catch (err) {
-      console.log(err)
     }
 
   }

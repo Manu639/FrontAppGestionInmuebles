@@ -7,14 +7,13 @@ import { PropertiesListComponent } from './components/properties/properties-list
 import { propertyFileComponent } from './components/properties/property-file/property-file.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppContentComponent } from './components/app-content/app-content.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
+  { path: 'login/:token', component: LoginComponent },
   {
     path: 'app', component: AppContentComponent, children: [
-      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'owners', component: OwnersListComponent },
       { path: 'owners/:id', component: OwnerFileComponent },

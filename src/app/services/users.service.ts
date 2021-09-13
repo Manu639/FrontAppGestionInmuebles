@@ -12,7 +12,7 @@ export class UsersService {
   constructor(
     private http: HttpClient
   ) {
-    this.baseUrl = `${environment.backendAppUrl}users`
+    this.baseUrl = `${environment.ApiUrl}users`
   }
 
   logIn(email: string, password: string): Promise<any> {

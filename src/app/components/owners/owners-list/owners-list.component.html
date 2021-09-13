@@ -49,6 +49,13 @@
             </div>
         </mat-card>
     </div>
+    <div class="px-5 py-2 d-flex">
+        <button mat-raised-button color="accent" (click)="openDialog()" class=" w-100 d-flex align-items-center
+            justify-content-center">
+            <mat-icon>add</mat-icon>
+            Nuevo Propietario
+        </button>
+    </div>
     <div class="px-5 py-2">
         <mat-card mt-4 class="mat-elevation-z3">
             <table mat-table [dataSource]="owners">

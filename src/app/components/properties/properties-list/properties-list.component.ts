@@ -39,6 +39,7 @@ export class PropertiesListComponent {
   }
 
   async ngOnInit() {
-    this.properties = await this.propertyService.getAll()
+    let response = await this.propertyService.getByUser()
+    this.properties = response.data.response
   }
 }

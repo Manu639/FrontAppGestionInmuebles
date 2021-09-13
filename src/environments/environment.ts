@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendAppUrl: "http://127.0.0.1:3000/api/"
+  ApiUrl: "http://127.0.0.1:3000/api/"
 };
 
 /*

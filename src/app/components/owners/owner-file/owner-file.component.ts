@@ -65,7 +65,6 @@ export class OwnerFileComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.ownerForm.value)
     let ownerId = this.activatedRoute.snapshot.params.id
     this.ownersService.update(this.ownerForm.value, ownerId)
     this.isReadonly = true

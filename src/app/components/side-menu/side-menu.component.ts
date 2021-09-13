@@ -22,13 +22,11 @@ export class SideMenuComponent implements OnInit {
   ngOnInit(): void {
     this.ngRedux.subscribe(() => {
       this.isNavOpen = this.ngRedux.getState().isNavOpen
-      console.log('Me Entero ')
     })
   }
 
   moveSideNav() {
     this.ngRedux.dispatch({ type: NAV_STATE })
-    console.log('a')
   }
 
 }
