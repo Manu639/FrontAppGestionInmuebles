@@ -20,7 +20,6 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AppContentComponent } from './components/app-content/app-content.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { RouterModule } from '@angular/router';
-import { OwnerRegisterFormComponent } from './components/owners/owner-register-form/owner-register-form.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +33,7 @@ import { OwnerRegisterFormComponent } from './components/owners/owner-register-f
     SideMenuComponent,
     AppContentComponent,
     ToolBarComponent,
-    OwnerRegisterFormComponent
   ],
-
-  entryComponents: [OwnerRegisterFormComponent],
-
   imports: [
     BrowserModule,
     AppRoutingModule,

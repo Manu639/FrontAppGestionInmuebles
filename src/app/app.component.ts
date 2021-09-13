@@ -21,6 +21,8 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.theme = this.ngRedux.getState().theme;
+    this.overlayContainer.getContainerElement().classList.add(this.theme);
+
     this.ngRedux.subscribe(() => {
       this.theme = this.ngRedux.getState().theme;
 
@@ -35,7 +37,6 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    this.overlayContainer.getContainerElement().classList.add(this.theme)
   }
 
 }
