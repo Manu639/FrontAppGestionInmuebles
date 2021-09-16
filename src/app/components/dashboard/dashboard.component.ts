@@ -29,10 +29,10 @@ export class DashboardComponent implements OnInit {
     let response;
 
     response = await this.ownerService.getByUser()
-    this.owners = response.data.response
+    this.owners = response.data
 
     response = await this.propertiesService.getByUser()
-    this.properties = response.data.response
+    this.properties = response.data
   }
 
 }

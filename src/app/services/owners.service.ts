@@ -24,9 +24,13 @@ export class OwnersService {
     return this.http.get<any>(`${this.baseUrl}/${id}`).toPromise()
   }
 
+  create(owner: Owner): Promise<any> {
+    return this.http.post<any>(`${this.baseUrl}/create`, owner).toPromise()
+  }
+
   update(owner: Owner, ownerId: string): Promise<any> {
     owner.id = ownerId
-    return this.http.post<any>(`${this.baseUrl}/update`, owner).toPromise()
+    return this.http.put<any>(`${this.baseUrl}/update`, owner).toPromise()
   }
 }
 

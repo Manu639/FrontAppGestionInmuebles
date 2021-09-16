@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { OwnersService } from 'src/app/services/owners.service';
 import { Owner } from '../../../interfaces/owner.interface';
+import { OwnersService } from 'src/app/services/owners.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterOwnerFormComponent } from '../register-owner-form/register-owner-form.component';
 
 @Component({
   selector: 'app-owners-list',
@@ -14,6 +16,7 @@ export class OwnersListComponent {
   displayedColumns: any[];
 
   constructor(
+    public dialog: MatDialog,
     private ownersService: OwnersService
   ) {
     this.owners = [];
@@ -50,7 +53,11 @@ export class OwnersListComponent {
 
   async ngOnInit() {
     let response = await this.ownersService.getByUser()
-    this.owners = response.data.response
+    this.owners = response.data
+  }
+
+  openDialog(): void {
+    this.dialog.open(RegisterOwnerFormComponent, { width: '600px' });
   }
 
 }

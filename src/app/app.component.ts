@@ -21,17 +21,20 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.theme = this.ngRedux.getState().theme;
-    this.overlayContainer.getContainerElement().classList.add(this.theme);
+    this.overlayContainer.getContainerElement().classList.add(this.theme)
 
     this.ngRedux.subscribe(() => {
       this.theme = this.ngRedux.getState().theme;
 
-      const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
-      const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('Theme'));
-      if (themeClassesToRemove.length) {
-        overlayContainerClasses.remove(...themeClassesToRemove);
+      const overlayClasses = this.overlayContainer.getContainerElement().classList;
+
+      const classesToRemove = Array.from(overlayClasses).filter((item: string) => item.includes('Theme'));
+
+      if (classesToRemove.length) {
+        overlayClasses.remove(...classesToRemove);
       }
-      overlayContainerClasses.add(this.theme);
+
+      overlayClasses.add(this.theme);
 
     })
   }

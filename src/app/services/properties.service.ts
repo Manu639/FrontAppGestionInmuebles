@@ -25,6 +25,14 @@ export class PropertiesService {
 
   update(property: Property, propertyId: string): Promise<any> {
     property.id = propertyId
-    return this.http.post<any>(`${this.baseUrl}/update`, property).toPromise()
+    return this.http.put<any>(`${this.baseUrl}/update`, property).toPromise()
+  }
+
+  getTypes(): Promise<any> {
+    return this.http.get<any>(`${this.baseUrl}/types`).toPromise()
+  }
+
+  create(property: Property): Promise<any> {
+    return this.http.post<any>(`${this.baseUrl}/create`, property).toPromise()
   }
 }

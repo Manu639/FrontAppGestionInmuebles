@@ -8,16 +8,15 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 const material = [
   MatSidenavModule,
@@ -32,11 +31,23 @@ const material = [
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule,
   MatTabsModule,
   MatGridListModule,
-  MatSnackBarModule,
-  MatDialogModule]
+  MatDialogModule,
+  MatMomentDateModule]
+
+const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD-MM-YYYY',
+  },
+  display: {
+    dateInput: 'DD-MM-YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+}
+
 
 @NgModule({
   imports: [
@@ -45,7 +56,7 @@ const material = [
 
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
   ],
   exports: [
     ...material

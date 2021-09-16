@@ -1,6 +1,8 @@
 import { PropertiesService } from '../../../services/properties.service';
 import { Component } from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
+import { RegisterPropertyFormComponent } from 'src/app/register-property-form/register-property-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -14,6 +16,7 @@ export class PropertiesListComponent {
   displayedColumns: any[];
 
   constructor(
+    public dialog: MatDialog,
     private propertyService: PropertiesService
   ) {
     this.properties = [];
@@ -40,6 +43,10 @@ export class PropertiesListComponent {
 
   async ngOnInit() {
     let response = await this.propertyService.getByUser()
-    this.properties = response.data.response
+    this.properties = response.data
+  }
+
+  openDialog(): void {
+    this.dialog.open(RegisterPropertyFormComponent, { width: '600px' });
   }
 }

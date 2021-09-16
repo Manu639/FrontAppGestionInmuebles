@@ -20,6 +20,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AppContentComponent } from './components/app-content/app-content.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { RouterModule } from '@angular/router';
+import { RegisterOwnerFormComponent } from './components/owners/register-owner-form/register-owner-form.component';
+import { RegisterPropertyFormComponent } from './register-property-form/register-property-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RouterModule } from '@angular/router';
     SideMenuComponent,
     AppContentComponent,
     ToolBarComponent,
+    RegisterOwnerFormComponent,
+    RegisterPropertyFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { RouterModule } from '@angular/router';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptorService, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RegisterOwnerFormComponent]
 })
 export class AppModule {
 
