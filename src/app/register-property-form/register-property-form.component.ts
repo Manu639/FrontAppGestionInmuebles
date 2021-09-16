@@ -24,10 +24,12 @@ export class RegisterPropertyFormComponent implements OnInit {
     this.types = [];
     this.owners = [];
     this.newPropertyForm = new FormGroup({
+      owner_id: new FormControl(''),
       alias: new FormControl(''),
       address: new FormControl(''),
       type: new FormControl(''),
-      owner_id: new FormControl(''),
+      ownership: new FormControl(''),
+      purchase_date: new FormControl(''),
     })
   }
 
@@ -42,6 +44,13 @@ export class RegisterPropertyFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+
+    let formDate = this.newPropertyForm.get('purchase_date').value;
+    const { years, months, date: day } = formDate.toObject();
+    this.newPropertyForm.value.purchase_date = `${years}-${months + 1}-${day}`
+    this.newPropertyForm.value.ownership = this.newPropertyForm.get('ownership').value / 100
+
+    console.log(this.newPropertyForm.value)
     this.propertiesService.create(this.newPropertyForm.value)
     this.dialogRef.close()
   }
