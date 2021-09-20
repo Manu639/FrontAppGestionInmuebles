@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Owner } from '../../../interfaces/owner.interface';
 import { ActivatedRoute } from '@angular/router';
+import { PropertiesService } from 'src/app/services/properties.service';
+import { Property } from 'src/app/interfaces/property.interface';
 
 @Component({
   selector: 'app-owner-file',
@@ -12,13 +14,15 @@ import { ActivatedRoute } from '@angular/router';
 
 export class OwnerFileComponent implements OnInit {
 
-  owner: Owner
-  ownerForm: FormGroup
-  isReadonly: boolean
+  owner: Owner;
+  properties: Property[];
+  ownerForm: FormGroup;
+  isReadonly: boolean;
 
   constructor(
     private ownersService: OwnersService,
-    private activatedRoute: ActivatedRoute
+    private propertiesService: PropertiesService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
     this.isReadonly = true
@@ -47,9 +51,10 @@ export class OwnerFileComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
-      this.owner = await this.ownersService.getById(params.id)
+      let response = await this.ownersService.getById(params.id)
+      this.owner = response.data;
 
       this.ownerForm.get('name')?.setValue(this.owner.name);
       this.ownerForm.get('last_name')?.setValue(this.owner.last_name);
@@ -61,18 +66,23 @@ export class OwnerFileComponent implements OnInit {
       this.ownerForm.get('iban')?.setValue(this.owner.iban);
       this.ownerForm.get('birth_date')?.setValue(this.owner.birth_date);
     })
-  }
 
+    let response = await this.propertiesService.getByOwner(1);
+    this.properties = response.data
+  }
 
   onSubmit() {
     let ownerId = this.activatedRoute.snapshot.params.id
-    this.ownersService.update(this.ownerForm.value, ownerId)
-    this.isReadonly = true
+
+    let formDate = this.ownerForm.get('birth_date').value;
+    const { years, months, date: day } = formDate.toObject();
+    this.ownerForm.value.birth_date = `${years}-${months + 1}-${day}`;
+
+    this.ownersService.update(this.ownerForm.value, ownerId);
+    this.isReadonly = true;
   }
 
   initEditMode() {
-
     this.isReadonly = this.isReadonly ? false : true
-
   }
 }

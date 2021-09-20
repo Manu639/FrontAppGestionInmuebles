@@ -35,4 +35,9 @@ export class PropertiesService {
   create(property: Property): Promise<any> {
     return this.http.post<any>(`${this.baseUrl}/create`, property).toPromise()
   }
+
+  getByOwner(owner_id: number): Promise<any> {
+    return this.http.get<any>(`${this.baseUrl}/owner/${owner_id}`).toPromise()
+  }
+
 }

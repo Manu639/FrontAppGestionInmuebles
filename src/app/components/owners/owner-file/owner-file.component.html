@@ -1,83 +1,97 @@
-<form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
-    <div class="d-flex align-items-center mb-3">
-        <h1 class="me-3">{{owner.name + " " + owner.last_name}}</h1>
-        <div *ngIf="isReadonly">
-            <button class="mat-elevation-z0" mat-mini-fab color="accent" (click)="initEditMode()">
-                <mat-icon>edit</mat-icon>
-            </button>
-        </div>
-        <div *ngIf="!isReadonly">
-            <button class="mat-elevation-z0" mat-mini-fab color="accent">
-                <mat-icon>save</mat-icon>
-            </button>
-        </div>
+<div class="d-flex align-items-center mb-3">
+    <h1 class="me-3">{{owner.name + " " + owner.last_name}}</h1>
+    <div *ngIf="isReadonly">
+        <button class="mat-elevation-z0" mat-mini-fab color="accent" (click)="initEditMode()">
+            <mat-icon>edit</mat-icon>
+        </button>
     </div>
-    <div class="row g-4">
-        <div class="col-12">
-            <mat-card class="w-100">
-                <mat-card-header>
-                    <mat-card-title>Información Personal</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="row">
-                    <mat-form-field class="col-4">
-                        <mat-label>Nombre</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="name">
-                    </mat-form-field>
-                    <mat-form-field class="col-4">
-                        <mat-label>Apellidos</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="last_name">
-                    </mat-form-field>
-                    <mat-form-field class="col-4">
-                        <mat-label>Dni / Nif / Cif</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="identification_number">
-                    </mat-form-field>
-                    <mat-form-field class="col-3">
-                        <mat-label>Fecha de nacimiento</mat-label>
-                        <input readonly="true" matInput [matDatepicker]="picker" formControlName="birth_date">
-                        <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="isReadonly"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                    <mat-form-field class="col-9">
-                        <mat-label>Dirección</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="personal_address">
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="col-6">
-            <mat-card class="w-100">
-                <mat-card-header>
-                    <mat-card-title>Datos Bancarios</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="row">
-                    <mat-form-field class="col-12">
-                        <mat-label>Iban</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="iban">
-                    </mat-form-field>
-                    <mat-form-field class="col-12">
-                        <mat-label>Dirección Fiscal</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="tax_address">
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="col-6">
-            <mat-card class="w-100">
-                <mat-card-header>
-                    <mat-card-title>Contacto</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <mat-form-field class="col-12">
-                        <mat-label>Email</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="email">
-                    </mat-form-field>
-                    <mat-form-field class="col-12">
-                        <mat-label>Movil</mat-label>
-                        <input matInput [readonly]="isReadonly" formControlName="phone">
-                    </mat-form-field>
-                </mat-card-content>
-            </mat-card>
-        </div>
+    <div *ngIf="!isReadonly">
+        <button class="mat-elevation-z0" mat-mini-fab color="accent">
+            <mat-icon>save</mat-icon>
+        </button>
     </div>
+</div>
 
-</form>
+<mat-tab-group>
+    <mat-tab label="Mapa">
+        <div class="row g-4 m-1">
+            <div class="col-6">
+                <agm-map [latitude]="40.416775" [longitude]="-3.703790" [zoom]="12">
+                </agm-map>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Información personal">
+        <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+            <div class="row g-4 m-1">
+                <div class="col-12">
+                    <mat-card class="w-100">
+                        <mat-card-header>
+                            <mat-card-title>Información Personal</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="row">
+                            <mat-form-field class="col-4">
+                                <mat-label>Nombre</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="name">
+                            </mat-form-field>
+                            <mat-form-field class="col-4">
+                                <mat-label>Apellidos</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="last_name">
+                            </mat-form-field>
+                            <mat-form-field class="col-4">
+                                <mat-label>Dni / Nif / Cif</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="identification_number">
+                            </mat-form-field>
+                            <mat-form-field class="col-3">
+                                <mat-label>Fecha de nacimiento</mat-label>
+                                <input readonly="true" matInput [matDatepicker]="picker" formControlName="birth_date">
+                                <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="isReadonly">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field class="col-9">
+                                <mat-label>Dirección</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="personal_address">
+                            </mat-form-field>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-6">
+                    <mat-card class="w-100">
+                        <mat-card-header>
+                            <mat-card-title>Datos Bancarios</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="row">
+                            <mat-form-field class="col-12">
+                                <mat-label>Iban</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="iban">
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <mat-label>Dirección Fiscal</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="tax_address">
+                            </mat-form-field>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-6">
+                    <mat-card class="w-100">
+                        <mat-card-header>
+                            <mat-card-title>Contacto</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field class="col-12">
+                                <mat-label>Email</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="email">
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <mat-label>Movil</mat-label>
+                                <input matInput [readonly]="isReadonly" formControlName="phone">
+                            </mat-form-field>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </form>
+    </mat-tab>
+
+</mat-tab-group>

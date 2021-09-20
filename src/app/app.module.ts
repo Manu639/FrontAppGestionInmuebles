@@ -21,7 +21,9 @@ import { AppContentComponent } from './components/app-content/app-content.compon
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { RouterModule } from '@angular/router';
 import { RegisterOwnerFormComponent } from './components/owners/register-owner-form/register-owner-form.component';
+
 import { RegisterPropertyFormComponent } from './register-property-form/register-property-form.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { RegisterPropertyFormComponent } from './register-property-form/register
     HttpClientModule,
     ReactiveFormsModule,
     NgReduxModule,
-    RouterModule
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDypL0Hu9vAwo5qN7X6_ng_CirJATHFjJw'
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptorService, multi: true }
