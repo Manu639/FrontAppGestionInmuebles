@@ -12,10 +12,15 @@ export class HeadersInterceptorService {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token: string = localStorage.getItem('authorization');
+    const isGoogle = (req.url.includes('google'))
+
+    if (isGoogle) {
+      return next.handle(req)
+    }
 
     let request = req;
 
+    const token: string = localStorage.getItem('authorization');
     if (token) {
       request = req.clone({
         setHeaders: {

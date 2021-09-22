@@ -5,6 +5,7 @@ import { Owner } from '../../../interfaces/owner.interface';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { Property } from 'src/app/interfaces/property.interface';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-owner-file',
@@ -24,8 +25,10 @@ export class OwnerFileComponent implements OnInit {
     private propertiesService: PropertiesService,
     private activatedRoute: ActivatedRoute,
   ) {
+    this.properties = [];
 
-    this.isReadonly = true
+    this.isReadonly = true;
+
     this.owner = {
       name: '',
       last_name: '',
@@ -49,9 +52,10 @@ export class OwnerFileComponent implements OnInit {
       iban: new FormControl(''),
       birth_date: new FormControl(''),
     })
+
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
       let response = await this.ownersService.getById(params.id)
       this.owner = response.data;
@@ -65,19 +69,21 @@ export class OwnerFileComponent implements OnInit {
       this.ownerForm.get('invoice_address')?.setValue(this.owner.tax_address);
       this.ownerForm.get('iban')?.setValue(this.owner.iban);
       this.ownerForm.get('birth_date')?.setValue(this.owner.birth_date);
+
+      response = await this.propertiesService.getByOwner(params.id);
+      this.properties = response.data
     })
 
-    let response = await this.propertiesService.getByOwner(1);
-    this.properties = response.data
   }
 
   onSubmit() {
     let ownerId = this.activatedRoute.snapshot.params.id
 
-    let formDate = this.ownerForm.get('birth_date').value;
+    let formDate = moment(this.ownerForm.get('birth_date').value);
+
     const { years, months, date: day } = formDate.toObject();
     this.ownerForm.value.birth_date = `${years}-${months + 1}-${day}`;
-
+    console.log(this.ownerForm.get('birth_date'))
     this.ownersService.update(this.ownerForm.value, ownerId);
     this.isReadonly = true;
   }

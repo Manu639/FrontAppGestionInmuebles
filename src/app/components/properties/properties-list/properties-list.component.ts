@@ -27,14 +27,23 @@ export class PropertiesListComponent {
         cell: (property: any) => `${property.alias}`
       },
       {
+        columnDef: 'type',
+        header: 'Tipo',
+        cell: (property: any) => `${property.type}`
+      },
+      {
         columnDef: 'address',
         header: 'Dirección',
         cell: (property: any) => `${property.address}`
       },
       {
+        columnDef: 'reference',
+        header: 'Ref. Catastral',
+      },
+      {
         columnDef: 'actions',
         header: 'Opciones',
-      }
+      },
 
     ];
 

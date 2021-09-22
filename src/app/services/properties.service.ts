@@ -40,4 +40,10 @@ export class PropertiesService {
     return this.http.get<any>(`${this.baseUrl}/owner/${owner_id}`).toPromise()
   }
 
+  getGoogleAddressInfo(address: string): Promise<any> {
+    let googleAddress = address.split(" ").join('+').replace('º', '')
+    return this.http.get<any>(`https://maps.googleapis.com/maps/api/geocode/json?address=${googleAddress}&key=${environment.googleApiKey}`).toPromise()
+
+  }
+
 }

@@ -1,27 +1,19 @@
 <div class="d-flex align-items-center mb-3">
     <h1 class="me-3">{{owner.name + " " + owner.last_name}}</h1>
-    <div *ngIf="isReadonly">
-        <button class="mat-elevation-z0" mat-mini-fab color="accent" (click)="initEditMode()">
-            <mat-icon>edit</mat-icon>
-        </button>
-    </div>
-    <div *ngIf="!isReadonly">
-        <button class="mat-elevation-z0" mat-mini-fab color="accent">
-            <mat-icon>save</mat-icon>
-        </button>
-    </div>
 </div>
 
-<mat-tab-group>
+<mat-tab-group color="accent">
     <mat-tab label="Mapa">
         <div class="row g-4 m-1">
             <div class="col-6">
-                <agm-map [latitude]="40.416775" [longitude]="-3.703790" [zoom]="12">
+                <agm-map [fitBounds]="true">
+                    <agm-marker *ngFor="let property of properties" [agmFitBounds]="true" [latitude]="property.lat"
+                        [longitude]="property.lng"></agm-marker>
                 </agm-map>
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Información personal">
+    <mat-tab label="Información">
         <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
             <div class="row g-4 m-1">
                 <div class="col-12">
@@ -89,6 +81,18 @@
                             </mat-form-field>
                         </mat-card-content>
                     </mat-card>
+                </div>
+            </div>
+            <div class="col-12 px-3 py-2">
+                <div *ngIf="isReadonly">
+                    <button class="w-100" mat-raised-button color="primary" (click)="initEditMode()">
+                        <mat-icon>edit</mat-icon> ¡Editar!
+                    </button>
+                </div>
+                <div *ngIf="!isReadonly">
+                    <button type="submit" class="w-100" mat-raised-button color="primary">
+                        <mat-icon>save</mat-icon> ¡Guardar!
+                    </button>
                 </div>
             </div>
         </form>
